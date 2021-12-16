@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    width: 70px;
+    -webkit-transition: width 0.6s ease-in-out;
+    transition: width 0.6s ease-in-out;
+    margin-right: 5px;
+}
+.search-bar:focus {
+    width: 170px;
+}
+
+.btn {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
