@@ -1,3 +1,9 @@
+/* 
+npm i, npm i mongoose, npm i dotenv, 
+npm i express-session, npm i passport,
+npm i passport-google-oauth, npm i method-override
+*/
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,6 +12,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+// This will load our env variables
+require('dotenv').config();
 
 var app = express();
 
