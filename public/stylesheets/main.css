@@ -1,8 +1,29 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/images/baby groot wallpaper.jpeg");
+  background-size: cover; */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-a {
-  color: #00B7FF;
+.container {
+  color: white;
+
+}
+
+#heading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+  font-size: 95px;
+}
+
+#slogan {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
 }
