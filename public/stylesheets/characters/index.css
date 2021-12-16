@@ -34,3 +34,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.char-image {
+    width: 20%;
+}

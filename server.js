@@ -14,12 +14,13 @@ var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
 
+// This will load our env variables
+require('dotenv').config();
+
 var indexRouter = require('./routes/index');
 var charactersRouter = require('./routes/characters');
 const isLoggedIn = require('./config/auth');
 
-// This will load our env variables
-require('dotenv').config();
 
 // This will connect us to the database
 require('./config/database');
