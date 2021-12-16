@@ -27,5 +27,10 @@ async function index (req,res) {
 };
 
 function show (req,res) {
-    
+    fetch(`${rootURL}/${req.params.id}`)
+    // convert to JSON format
+    .then(res => res.json())
+    .then(data => {
+        res.render("characters/show", {characterData: data})
+    })
 }
