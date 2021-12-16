@@ -3,10 +3,12 @@
 <html>
   <head>
       <title>Hero details</title>
-    <link rel='stylesheet' href='/stylesheets/characters/index.css' />
+    <link rel='stylesheet' href='/stylesheets/characters/show.css' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
   <body>
+      <h2 class="title"><%= title %> </h2>
+      <div class= "hero-card">
     <% if (characterData) { %>
         <table class="table table-striped">
             <thead class="thead-dark">
@@ -52,5 +54,6 @@
                 </tbody>
             </table>
     <% } %>
+        </div>
   </body>
 </html>

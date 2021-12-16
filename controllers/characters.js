@@ -15,14 +15,14 @@ async function index (req,res) {
     // add button to add to team list
     const characterName = req.query.characterName; // character searched
     // if no data in search input, render page
-    if (!characterName) return res.render('characters/index', {characterData: null})
+    if (!characterName) return res.render('characters/index', {title: "My team", characterData: null})
     // let characterData
     fetch(`${rootURL}/search/${characterName}`)
         // convert to JSON format
         .then(res => res.json())
         // display data
         .then(data => {
-            res.render("characters/index",{characterData: data.results});
+            res.render("characters/index",{title: "My team", characterData: data.results});
         })
 };
 
@@ -31,6 +31,6 @@ function show (req,res) {
     // convert to JSON format
     .then(res => res.json())
     .then(data => {
-        res.render("characters/show", {characterData: data})
+        res.render("characters/show", {title: "Hero details", characterData: data})
     })
 }

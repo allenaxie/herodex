@@ -4,7 +4,13 @@ body {
     height: 100vh;
 }
 
-.container {
+.title {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
     display: flex;
     justify-content: center;
     align-items: center;
