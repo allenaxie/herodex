@@ -14,8 +14,8 @@
         </div>
     </form>
     <% if (characterData) { %>
-        <table>
-            <thead>
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th>ID</th> 
                     <th>Name</th>
@@ -39,14 +39,14 @@
                     </td>
                     <td> 
                         <% if (c.appearance.race) { %>
-                          <%=  c.appearance.race %>
+                          <%= c.appearance.race %>
                         <% } else { %>
                             <span> N/A </span> 
                         <% } %> 
                     </td>
                     <td> 
                         <% if (c.connections.relatives) { %>
-                            <%=  c.connections.relatives %>
+                            <%= c.connections.relatives %>
                           <% } else { %>
                             <span> N/A </span>
                         <% }%> 
