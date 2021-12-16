@@ -7,8 +7,13 @@ body {
 }
 
 .container {
-  color: white;
-
+  color: #E62A48;
+  /* background-color: #E62A48; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20%;
 }
 
 #heading {
@@ -16,8 +21,8 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 120px;
   font-size: 95px;
+  text-shadow: 4px 4px #1B1B1B;
 }
 
 #slogan {
@@ -26,4 +31,7 @@ body {
   flex-direction: column;
   align-items: center;
   font-size: 25px;
+  font-weight: bold;
+  background: #1B1B1B;
+  padding: 3px;
 }
