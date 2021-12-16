@@ -38,3 +38,12 @@ body {
 .char-image {
     width: 100px;
 }
+
+.add-char-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
