@@ -12,7 +12,8 @@ router.get('/', charactersCtrl.index);
 // GET "/characters/:id" - Show route
 router.get('/:id', charactersCtrl.show);
 
-
+// POST "/characters/:id" - Add character
+router.post('/:id', charactersCtrl.addTeam)
 
 // GET "/characters/all" - all characters route
 

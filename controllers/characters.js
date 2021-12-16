@@ -6,6 +6,7 @@ const rootURL = `https://superheroapi.com/api/${token}`
 module.exports = {
     index,
     show,
+    addTeam,
 }
 
 async function index (req,res) {
@@ -33,4 +34,18 @@ function show (req,res) {
     .then(data => {
         res.render("characters/show", {title: "Hero details", characterData: data})
     })
-}
+};
+
+function addTeam (req,res) {
+    // Add user to character
+    req.body.user = req.user.id
+    // Create an in-memory object (not saved in database yet)
+    const character = new Character(req.body);
+    console.log(character)
+    character.save(function (err) {
+        // handle errors
+        if (err) console.log(err);
+        // redirect to characters/index page
+        res.redirect('/characters')
+    })
+};
