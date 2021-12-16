@@ -17,9 +17,12 @@
         <table>
             <thead>
                 <tr>
+                    <th>ID</th> 
                     <th>Name</th>
-                    <th>ID</th>
-                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Biography</th>
+                    <th>Race</th>
+                    <th>Relatives</th>
                 </tr>
             </thead>
             <% characterData.forEach(function (c) { %>
@@ -34,8 +37,20 @@
                             <br>
                         <% } %> 
                     </td>
-                    <td> <%= c.appearance.race %> </td>
-                    <td> <%= c.connections.relatives  %> </td>
+                    <td> 
+                        <% if (c.appearance.race) { %>
+                          <%=  c.appearance.race %>
+                        <% } else { %>
+                            <span> N/A </span> 
+                        <% } %> 
+                    </td>
+                    <td> 
+                        <% if (c.connections.relatives) { %>
+                            <%=  c.connections.relatives %>
+                          <% } else { %>
+                            <span> N/A </span>
+                        <% }%> 
+                    </td>
                     <td> 
                         <button class="btn glyphicon glyphicon-plus"></button> 
                     </td>

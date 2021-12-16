@@ -26,14 +26,6 @@ async function index (req,res) {
         .then(res => res.json())
         // display data
         .then(data => {
-            console.log(data.results.find(function (d) {
-                console.log(d.id);
-                console.log(d.name);
-                console.log(d.image);
-                console.log(d.biography);
-                console.log(d.appearance);
-                console.log(d.work);
-            }));
             res.render("characters/index",{characterData: data.results});
         })
     // const characters = await Character.find({})
