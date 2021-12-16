@@ -4,6 +4,7 @@ module.exports = {
     index,
 }
 
-function index (req,res) {
-
+async function index (req,res) {
+    const characters = await Character.find({})
+    res.render("characters/index",{characters});
 }

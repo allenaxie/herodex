@@ -22,11 +22,20 @@
     </div>
     <div class="collapse navbar-collapse" id="Navbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="/">Home</a></li>
+        <li class="active">
+            <a href="/">
+                <span class="glyphicon glyphicon-home"></span> Home
+            </a>
+        </li>
         <% if (user) { %>
+            <li>
+                <a href="/characters">
+                    <span class="glyphicon glyphicon-user"></span> My team
+                </a>
+            </li>
         <li>
             <a href="/logout">
-                <span class="glyphicon glyphicon-log-out"></span> LOG OUT
+                <span class="glyphicon glyphicon-log-out"></span> Log out
             </a>
         </li>
         <% } else { %>
