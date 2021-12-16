@@ -28,7 +28,7 @@
             <% characterData.forEach(function (c) { %>
                 <tbody>
                     <td> <%= c.id  %> </td>
-                    <td> <%= c.name  %> </td>
+                    <td> <a > <%= c.name  %></a> </td>
                     <td> <image class="char-image"src=<%= c.image.url  %>> </td>
                     <td> 
                         <% for (let key in c.biography) { %>
@@ -38,17 +38,17 @@
                         <% } %> 
                     </td>
                     <td> 
-                        <% if (c.appearance.race) { %>
+                        <% if (c.appearance.race !== "null") { %>
                           <%= c.appearance.race %>
                         <% } else { %>
-                            <span> N/A </span> 
+                             N/A 
                         <% } %> 
                     </td>
                     <td> 
-                        <% if (c.connections.relatives) { %>
+                        <% if (c.connections.relatives !== "null") { %>
                             <%= c.connections.relatives %>
                           <% } else { %>
-                            <span> N/A </span>
+                             N/A 
                         <% }%> 
                     </td>
                     <td> 

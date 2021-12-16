@@ -5,6 +5,7 @@ const rootURL = `https://superheroapi.com/api/${token}`
 
 module.exports = {
     index,
+    show,
 }
 
 async function index (req,res) {
@@ -12,11 +13,6 @@ async function index (req,res) {
     // search through API database
         // render search results
     // add button to add to team list
-
-
-
-
-
     const characterName = req.query.characterName; // character searched
     // if no data in search input, render page
     if (!characterName) return res.render('characters/index', {characterData: null})
@@ -28,5 +24,8 @@ async function index (req,res) {
         .then(data => {
             res.render("characters/index",{characterData: data.results});
         })
-    // const characters = await Character.find({})
+};
+
+function show (req,res) {
+    
 }

@@ -9,6 +9,11 @@ const isLoggedIn = require('../config/auth');
 // GET "/characters" - Index Route
 router.get('/', charactersCtrl.index);
 
+// GET "/characters/:id" - Show route
+router.get('/:id', charactersCtrl.show);
+
+
+
 // GET "/characters/all" - all characters route
 
 
