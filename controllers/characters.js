@@ -13,18 +13,19 @@ async function index (req,res) {
     // show all characters
     // search through API database
         // render search results
-    // add button to add to team list
-    const characterName = req.query.characterName; // character searched
-    // if no data in search input, render page
-    if (!characterName) return res.render('characters/index', {title: "My team", characterData: null})
-    // let characterData
-    fetch(`${rootURL}/search/${characterName}`)
-        // convert to JSON format
-        .then(res => res.json())
-        // display data
-        .then(data => {
-            res.render("characters/index",{title: "My team", characterData: data.results});
-        })
+
+        const characterName = req.query.characterName; // character searched
+        // if no data in search input, render page
+        if (!characterName) return res.render('characters/index', {title: "My team", characterData: null})
+        // let characterData
+        fetch(`${rootURL}/search/${characterName}`)
+            // convert to JSON format
+            .then(res => res.json())
+            // display data
+            .then(data => {
+                res.render("characters/index",{title: "My team", characterData: data.results});
+            })
+   
 };
 
 function show (req,res) {
@@ -41,11 +42,11 @@ function addTeam (req,res) {
     req.body.user = req.user.id
     // Create an in-memory object (not saved in database yet)
     const character = new Character(req.body);
-    console.log(character)
+    // save parent document
     character.save(function (err) {
         // handle errors
         if (err) console.log(err);
         // redirect to characters/index page
-        res.redirect('/characters')
+        res.redirect('/characters');
     })
 };
