@@ -17,7 +17,7 @@ function index (req,res) {
         const characterName = req.query.characterName; // character searched 
         // if no data in search input, render page
         if (!characterName) return res.render('characters/index', {title: "My team", characterData: null, characters})
-        // search character in API database
+        // search function - find character in API database
         fetch(`${rootURL}/search/${characterName}`)
             // convert to JSON format
             .then(res => res.json())
@@ -54,11 +54,22 @@ function addTeam (req,res) {
     .then(res => res.json())
     .then(data => {
         character.apiId = req.params.id;
+        character.name = data.name;
+        character.image = data.image.url;
+        character.fullName = data.biography.fullName;
+        character.birthplace = data.biography.placeOfBirth;
+        character.gender = data.appearance.gender;
+        character.race = data.appearance.race;
+        character.height = data.appearance.height;
+        character.weight = data.appearance.weight;
+        character.occupation = data.work.occupation;
+        character.base = data.work.base;
+        character.relatives = data.connections.relatives;
     // save parent document
     character.save(function (err) {
         // handle errors
         if (err) console.log(err);
-        console.log(character);
+        console.log(`character: ${character}`);
         // redirect to characters/index page
         res.redirect('/characters');
     })

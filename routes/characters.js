@@ -7,16 +7,16 @@ const isLoggedIn = require('../config/auth');
 // All paths in this router have "/characters" prefixed to them
 
 // GET "/characters" - Index Route
-router.get('/', charactersCtrl.index);
+router.get('/', isLoggedIn, charactersCtrl.index);
 
 // GET "/characters/:id" - Show route
 router.get('/:id', charactersCtrl.show);
 
 // POST "/characters/:id" - Add character to team
-router.post('/:id', charactersCtrl.addTeam);
+router.post('/:id', isLoggedIn, charactersCtrl.addTeam);
 
 // DELETE "/characters/:id" - Remove character from team
-router.delete('/:id', charactersCtrl.delete);
+router.delete('/:id', isLoggedIn, charactersCtrl.delete);
 
 // GET "/characters/all" - all characters route
 
