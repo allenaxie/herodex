@@ -49,7 +49,6 @@
                              N/A 
                         <% }%> 
                     </td>
-                    <!-- <% console.log(`show: ${characters}`) %> -->
                     <!-- if (user is logged in and character not already in 'my team' list) -->
                         <td> 
                             <form action="/characters/<%=characterData.id%>" method="POST">
@@ -94,7 +93,9 @@
                         <th>Rating</th>
                     </tr>
                 </thead>
+                <% let total = 0 %>
                 <% characters.reviews.forEach(function (r) { %>
+                    <% total += r.rating %>
                 <tbody>
                     <td>
                         <img class="user-image" src="<%= r.userAvatar %>">
@@ -103,9 +104,18 @@
                     <td><%= r.createdAt.toLocaleDateString() %></td>
                     <td><%= r.content %> </td>
                     <td><%= r.rating %> </td>
-                </tbody>
-
+                    <td>
+                        <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
+                            <button type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+                        </form>
+                    </td>
                 <% }) %>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td><strong>Average: <%= (total / characters.reviews.length).toFixed(1) %></strong></td>
+                      </tr>
+                </tbody>
+                
             </table>
 
         <% } %>

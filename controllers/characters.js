@@ -23,7 +23,6 @@ function index (req,res) {
             .then(res => res.json())
             // display data
             .then(data => {
-                console.log(characters);
                 if (err) {
                     console.log(err);
                 }
@@ -69,7 +68,6 @@ function addTeam (req,res) {
     character.save(function (err) {
         // handle errors
         if (err) console.log(err);
-        console.log(`character: ${character}`);
         // redirect to characters/index page
         res.redirect('/characters');
     })
