@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
   <body>
-      <h2 class="title"><%= title %> </h2>
+    <h2 class="title"><%= title %> </h2>
+    <!-- search bar -->
     <form class="form-container" action="/characters" method="GET">
         <div class="search-container">
             <input class="search-bar" type="text" name="characterName" placeholder="Search...">
@@ -16,9 +17,37 @@
     </form>
     <!-- my team -->
     <% if (characters.length) { %>
-        <% characters.forEach(function (char) { %>
-            <%= char.name %>
-        <% }) %>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th> 
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Biography</th>
+                        <th>Race</th>
+                        <th>Relatives</th>
+                    </tr>
+                </thead>
+                <% characters.forEach(function (c) { %>
+                    <tbody>
+                        <td> <%= c.apiId  %> </td>
+                        <td> <%= c.name  %> </td>
+                        <td> <image class="char-image"src=<%= c.image %>> </td>
+                        <td> 
+                            <%= c.biography %>
+                        </td>
+                        <td> 
+                            <%= c.race %>
+                        </td>
+                        <td> 
+                            <%= c.relatives %>
+                        </td>
+                        <td> 
+                            <a class="btn btn-primary" role="button" href="/characters/<%= c.apiId %>">Details</a>
+                        </td>
+                    </tbody>
+                <% }) %>
+                </table>
     <% } %>
     <!-- search results -->
     <% if (characterData) { %>
@@ -31,7 +60,6 @@
                     <th>Biography</th>
                     <th>Race</th>
                     <th>Relatives</th>
-                    
                 </tr>
             </thead>
             <% characterData.forEach(function (c) { %>

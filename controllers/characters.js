@@ -10,11 +10,30 @@ module.exports = {
 }
 
 function index (req,res) {
+    // Show my team
+    // Find all characters in my team
    Character.find({}, function (err, characters) {
-    // show all characters
-    // search through API database
-        // render search results
-        const characterName = req.query.characterName; // character searched
+    //    const charIdArr = [];
+    //     // for each character in array
+    //     characters.forEach(function (char) {
+    //         charIdArr.push(char.apiId);
+    //     })
+    //    // if there are characters in my team
+    //    if (characters.length) {
+    //         // search API and match id number
+    //         fetch(`${rootURL}/search/${char.apiId}`)
+    //            // convert to JSON format
+    //            .then(res => res.json())
+    //            // display data
+    //            .then(data => {
+    //                if(err) {
+    //                    console.log(err);
+    //                }
+    //                res.render("characters/index",{title: "My team", characters, characterData: data.results});
+    //            })
+    //        }
+       
+        const characterName = req.query.characterName; // character searched 
         // if no data in search input, render page
         if (!characterName) return res.render('characters/index', {title: "My team", characterData: null, characters})
         // search character in API database
@@ -23,24 +42,25 @@ function index (req,res) {
             .then(res => res.json())
             // display data
             .then(data => {
-                console.log(favCharacters);
+                console.log(characters);
                 if (err) {
                     console.log(err);
                 }
                 res.render("characters/index",{title: "My team", characters, characterData: data.results});
             })
         })
-   
 };
 
 function show (req,res) {
-    fetch(`${rootURL}/${req.params.id}`)
-    // convert to JSON format
-    .then(res => res.json())
-    .then(data => {
-        res.render("characters/show", {title: "Hero details", characterData: data})
-        
-    })
+    Character.findById(req.params.id, function (err, characters) {
+        console.log(req.params.id);
+        fetch(`${rootURL}/${req.params.id}`)
+        // convert to JSON format
+        .then(res => res.json())
+        .then(data => {
+            res.render("characters/show", {title: "Hero details", characterData: data, characters})
+        })
+    });
 };
 
 function addTeam (req,res) {
@@ -53,9 +73,13 @@ function addTeam (req,res) {
     // convert to JSON format
     .then(res => res.json())
     .then(data => {
+        // for (let k in data) {
+        //     console.log(`k: ${k}`)
+        //     console.log(`data: ${data[k]}`)
+        //     character.k = data[k];
+        // }
+        // console.log(`character: ${character.name}`);
         character.apiId = req.params.id;
-        character.name = data.name;
-        character.image = data.image.url
     // save parent document
     character.save(function (err) {
         // handle errors

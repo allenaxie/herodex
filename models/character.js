@@ -3,13 +3,10 @@ const Schema = mongoose.Schema;
 
 const characterSchema = new Schema({
     apiId: String,
-    name: String,
-    image: {
-        type: String
-    },
     user: [{type: Schema.Types.ObjectId, ref: 'User'}],
     userName: String,
     userAvatar: String,
+
 }, {
     timestamps: true
 });

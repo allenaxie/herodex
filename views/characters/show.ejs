@@ -25,7 +25,9 @@
                 <tbody>
                     <td> <%= characterData.id  %> </td>
                     <td> <%= characterData.name  %> </td>
-                    <td> <image class="char-image"src=<%= characterData.image.url  %>> </td>
+                    <td>
+                        <image class="char-image" src= <%=characterData.image.url %>> 
+                    </td>
                     <td> 
                         <% for (let key in characterData.biography) { %>
                             <%= key %> :
