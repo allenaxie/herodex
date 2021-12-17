@@ -104,11 +104,13 @@
                     <td><%= r.createdAt.toLocaleDateString() %></td>
                     <td><%= r.content %> </td>
                     <td><%= r.rating %> </td>
+                    <% if (user && user._id.equals(r.user)) { %>
                     <td>
                         <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
                             <button type="submit"><span class="glyphicon glyphicon-remove"></span></button>
                         </form>
                     </td>
+                    <% } %>
                 <% }) %>
                     <tr>
                         <td colspan="3"></td>
