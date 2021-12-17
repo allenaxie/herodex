@@ -24,9 +24,9 @@
                         <th>ID</th> 
                         <th>Name</th>
                         <th>Image</th>
-                        <th>Biography</th>
+                        <th>Gender</th>
                         <th>Race</th>
-                        <th>Relatives</th>
+                        <th>Base</th>
                     </tr>
                 </thead>
                 <% characters.forEach(function (c) { %>
@@ -35,13 +35,13 @@
                         <td> <%= c.name  %> </td>
                         <td> <image class="char-image"src=<%= c.image %>> </td>
                         <td> 
-                            <%= c.biography %>
+                            <%= c.gender %>
                         </td>
                         <td> 
                             <%= c.race %>
                         </td>
                         <td> 
-                            <%= c.relatives %>
+                            <%= c.base %>
                         </td>
                         <td> 
                             <a class="btn btn-primary" role="button" href="/characters/<%= c.apiId %>">Details</a>
@@ -50,7 +50,7 @@
                 <% }) %>
                 </table>
     <% } %>
-    <!-- search results -->
+    <!-- search results by name-->
     <% if (characterData) { %>
         <table class="table table-striped">
             <thead class="thead-dark">
@@ -58,9 +58,9 @@
                     <th>ID</th> 
                     <th>Name</th>
                     <th>Image</th>
-                    <th>Biography</th>
+                    <th>Gender</th>
                     <th>Race</th>
-                    <th>Relatives</th>
+                    <th>Base</th>
                 </tr>
             </thead>
             <% characterData.forEach(function (c) { %>
@@ -69,11 +69,7 @@
                     <td> <%= c.name  %> </td>
                     <td> <image class="char-image"src=<%= c.image.url  %>> </td>
                     <td> 
-                        <% for (let key in c.biography) { %>
-                            <%= key %> :
-                            <%= c.biography[key] %> 
-                            <br>
-                        <% } %> 
+                        <%= c.appearance.gender %>
                     </td>
                     <td> 
                         <% if (c.appearance.race !== "null") { %>
@@ -83,8 +79,8 @@
                         <% } %> 
                     </td>
                     <td> 
-                        <% if (c.connections.relatives !== "null") { %>
-                            <%= c.connections.relatives %>
+                        <% if (c.work.base !== "null") { %>
+                            <%= c.work.base %>
                           <% } else { %>
                              N/A 
                         <% }%> 
