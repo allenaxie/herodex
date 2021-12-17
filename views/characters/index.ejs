@@ -5,7 +5,6 @@
       <title>My team</title>
     <link rel='stylesheet' href='/stylesheets/characters/index.css' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  
 </head>
   <body>
       <h2 class="title"><%= title %> </h2>
@@ -16,7 +15,11 @@
         </div>
     </form>
     <!-- my team -->
-
+    <% if (characters.length) { %>
+        <% characters.forEach(function (char) { %>
+            <%= char.name %>
+        <% }) %>
+    <% } %>
     <!-- search results -->
     <% if (characterData) { %>
         <table class="table table-striped">
