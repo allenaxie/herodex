@@ -49,12 +49,14 @@
                              N/A 
                         <% }%> 
                     </td>
-                    <!-- if (user and characterData) -->
+                    <% console.log(characters) %>
+                    <!-- if (user is logged in and character not already in 'my team' list) -->
                         <td> 
                             <form action="/characters/<%=characterData.id%>" method="POST">
                                 <button type="submit" class="btn btn-primary add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
                             </form>
                         </td>
+                
                     
                 </tbody>
             </table>
