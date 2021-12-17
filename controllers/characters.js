@@ -7,7 +7,7 @@ module.exports = {
     index,
     show,
     addTeam,
-    deleteTeam,
+    delete: removeChar,
 }
 
 function index (req,res) {
@@ -65,15 +65,21 @@ function addTeam (req,res) {
     })
 };
 
-function deleteTeam (req,res,next) {
+function removeChar (req,res,next) {
     // Look for character in 'my team'
     Character.findOne({apiId : req.params.id}).then(function(character) {
+        console.log(character);
+ 
+        // Ensure that the character belongs to the user
+        if (`${character.user}` !== `${req.user.id}`) return res.redirect(`/characters/${req.params.id}`);
         // remove character
         character.remove();
         // save updated character list
-        character.save().then(function() {
+        character.save()
+        // Redirect back to my team
+        .then(function() {
             res.redirect(`/characters`);
-        }). catch(function(err) {
+        }).catch(function(err) {
             return next(err);
         })
     })

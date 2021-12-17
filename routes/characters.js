@@ -16,7 +16,7 @@ router.get('/:id', charactersCtrl.show);
 router.post('/:id', charactersCtrl.addTeam);
 
 // DELETE "/characters/:id" - Remove character from team
-router.delete('/:id', charactersCtrl.deleteTeam);
+router.delete('/:id', charactersCtrl.delete);
 
 // GET "/characters/all" - all characters route
 
