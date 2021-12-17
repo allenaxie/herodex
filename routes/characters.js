@@ -12,8 +12,11 @@ router.get('/', charactersCtrl.index);
 // GET "/characters/:id" - Show route
 router.get('/:id', charactersCtrl.show);
 
-// POST "/characters/:id" - Add character
-router.post('/:id', charactersCtrl.addTeam)
+// POST "/characters/:id" - Add character to team
+router.post('/:id', charactersCtrl.addTeam);
+
+// DELETE "/characters/:id" - Remove character from team
+router.delete('/:id', charactersCtrl.deleteTeam);
 
 // GET "/characters/all" - all characters route
 

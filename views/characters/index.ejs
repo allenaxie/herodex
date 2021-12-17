@@ -15,7 +15,7 @@
             <button class="btn glyphicon glyphicon-search align-self-end"></button>&nbsp
         </div>
     </form>
-    <% console.log(`index: ${characters}`) %>
+    <!-- <% console.log(`index: ${characters}`) %> -->
     <!-- my team -->
     <% if (characters.length) { %>
             <table class="table table-striped">
@@ -91,7 +91,6 @@
                     </td>
                     <td> 
                         <a class="btn btn-primary" role="button" href="/characters/<%= c.id %>">Details</a>
-                        <button type="button" class="btn btn-primary add-char-btn "> <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
                     </td>
                 </tbody>
             <% }) %>

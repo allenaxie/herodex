@@ -7,6 +7,7 @@ module.exports = {
     index,
     show,
     addTeam,
+    deleteTeam,
 }
 
 function index (req,res) {
@@ -61,5 +62,19 @@ function addTeam (req,res) {
         // redirect to characters/index page
         res.redirect('/characters');
     })
+    })
+};
+
+function deleteTeam (req,res,next) {
+    // Look for character in 'my team'
+    Character.findOne({apiId : req.params.id}).then(function(character) {
+        // remove character
+        character.remove();
+        // save updated character list
+        character.save().then(function() {
+            res.redirect(`/characters`);
+        }). catch(function(err) {
+            return next(err);
+        })
     })
 };
