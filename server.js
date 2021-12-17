@@ -19,6 +19,7 @@ require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var charactersRouter = require('./routes/characters');
+const reviewsRouter = require('./routes/reviews');
 const isLoggedIn = require('./config/auth');
 
 
@@ -57,6 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/characters', charactersRouter);
+app.use('/', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

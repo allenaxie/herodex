@@ -33,7 +33,7 @@ function index (req,res) {
 };
 
 function show (req,res) {
-    Character.findById(req.params.id, function (err, characters) {
+    Character.findOne({apiId: req.params.id}, function (err, characters) {
         fetch(`${rootURL}/${req.params.id}`)
         // convert to JSON format
         .then(res => res.json())

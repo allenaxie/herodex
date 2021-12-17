@@ -64,5 +64,51 @@
             </table>
     <% } %>
         </div>
+        <!-- Review form -->
+        <div>
+            <form method="POST" action="/characters/<%= characterData.id%>/reviews"> 
+                <div class="form-group" >
+                    <label for="comment">Review:</label>
+                    <textarea class="form-control" row="3" id="comment" name="content" placeholder="Add a comment..."></textarea>
+                    <label>Rating:</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="3">3</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="4">4</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="5" selected>5</label>
+                    <div>
+                        <button>Cancel</button>
+                        <button type="submit">Add review</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- show reviews -->
+        <% if (characters.reviews.length) { %>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Comment</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <% characters.reviews.forEach(function (r) { %>
+                <tbody>
+                    <td>
+                        <img class="user-image" src="<%= r.userAvatar %>">
+                        <div><%= r.userName %></div>
+                    </td>
+                    <td><%= r.createdAt.toLocaleDateString() %></td>
+                    <td><%= r.content %> </td>
+                    <td><%= r.rating %> </td>
+                </tbody>
+
+                <% }) %>
+            </table>
+
+        <% } %>
+
   </body>
 </html>
