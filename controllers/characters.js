@@ -65,22 +65,11 @@ function addTeam (req,res) {
     })
 };
 
-function removeChar (req,res,next) {
+function removeChar (req,res) {
     // Look for character in 'my team'
-    Character.findOne({apiId : req.params.id}).then(function(character) {
-        console.log(character);
- 
-        // Ensure that the character belongs to the user
-        if (`${character.user}` !== `${req.user.id}`) return res.redirect(`/characters/${req.params.id}`);
-        // remove character
-        character.remove();
-        // save updated character list
-        character.save()
-        // Redirect back to my team
-        .then(function() {
-            res.redirect(`/characters`);
-        }).catch(function(err) {
-            return next(err);
-        })
-    })
+    Character.findOneAndDelete(
+        {apiId : req.params.id, user: req.user.id}, function (err) {
+            res.redirect('/characters');
+        }
+    );
 };
