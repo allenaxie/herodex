@@ -8,6 +8,8 @@ body {
     font-size: 40px;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .char-image {
@@ -25,4 +27,19 @@ body {
 
 .user-image {
     width: 40px;
+}
+
+form {
+    margin-left: 15px;
+    width: 600px;
+}
+
+.row {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.col:nth-child(1) {
+    margin-right: 5px;
 }
