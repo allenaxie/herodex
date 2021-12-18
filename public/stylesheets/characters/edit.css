@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.review-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 500px;
+}
+
+.rating-container {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+button:nth-child(2) {
+    margin-left: 10px;
+}

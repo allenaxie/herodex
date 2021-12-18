@@ -16,7 +16,7 @@
                     <th>ID</th> 
                     <th>Name</th>
                     <th>Image</th>
-                    <th>Biography</th>
+                    <th>Description</th>
                     <th>Race</th>
                     <th>Relatives</th>
                 </tr>
@@ -29,11 +29,11 @@
                         <image class="char-image" src= <%=characterData.image.url %>> 
                     </td>
                     <td> 
-                        <% for (let key in characterData.biography) { %>
-                            <%= key %> :
-                            <%= characterData.biography[key] %> 
-                            <br>
-                        <% } %> 
+                        Full-name: <%= characterData.biography["full-name"] %><br><br>
+                        Aliases: <%= characterData.biography.aliases %><br><br>
+                        Birthplace: <%= characterData.biography["place-of-birth"] %><br><br>
+                        Publisher: <%= characterData.biography.publisher %><br><br>
+                        Alignment: <%= characterData.biography.alignment %><br><br>
                     </td>
                     <td> 
                         <% if (characterData.appearance.race !== "null") { %>
