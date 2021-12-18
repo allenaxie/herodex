@@ -8,7 +8,7 @@ const isLoggedIn = require('../config/auth');
 // POST "/characters/:id/reviews" - Create review route
 router.post('/characters/:id/reviews', isLoggedIn, reviewsCtrl.create);
 
-// DELETE "/characters/:id" - Delete review route
+// DELETE "/reviews/:id" - Delete review route
 router.delete('/reviews/:id', reviewsCtrl.delete);
 
 // GET "/reviews/:id/edit" - Edit review route

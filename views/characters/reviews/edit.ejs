@@ -8,12 +8,13 @@
 </head>
   <body>
       <h2 class="title"><%= title %> </h2>
-        <!-- Review form -->
+      <% console.log(character.reviews) %>
+      <!-- Review form -->
         <div>
-            <form method="POST" action="/reviews/<%= character.reviews._id%>?_method=PUT"> 
+            <form action="/reviews/<%= character.reviews._id %>?_method=PUT" method="POST" > 
                 <div class="form-group" >
                     <label for="comment">Review:</label>
-                    <textarea class="form-control" row="3" id="comment" name="content" value="character.reviews.text"></textarea>
+                    <textarea class="form-control" row="3" id="comment" name="content" ></textarea>
                     <label>Rating:</label>
                     <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
                     <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>

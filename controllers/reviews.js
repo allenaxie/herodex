@@ -52,17 +52,17 @@ function deleteReview (req,res,next) {
 function edit (req,res) {
     // Note the cool "dot" syntax to query on the property of a subdoc
     Character.findOne({'reviews._id': req.params.id}, function (err, character) {
-        console.log(character.reviews);
-        console.log(req.params.id);
         res.render('characters/reviews/edit', {title:"Edit review", character});
     })
 }
 
 function update (req,res) {
     Character.findOne({'reviews._id': req.params.id}, function (err, character) {
+        console.log(character);
         const reviewSubdoc = character.reviews.id(req.params.id);
         if (!reviewSubdoc.userId.equals(req.user._id)) return res.redirect(`/characters/${character.apiId}`);
         reviewSubdoc.text = req.body.text;
+        console.log(reviewSubdoc.text)
         character.save(function(err) {
             console.log(character.reviews);
             res.redirect(`/characters/${character.apiId}`);
