@@ -18,7 +18,7 @@
     <!-- my team -->
     <% if (characters.length) { %>
             <table class="table table-striped">
-                <thead class="thead-dark">
+                <thead>
                     <tr>
                         <th>ID</th> 
                         <th>Name</th>
@@ -37,10 +37,18 @@
                             <%= c.gender %>
                         </td>
                         <td> 
-                            <%= c.race %>
+                            <% if (c.race !== "null") { %>
+                                <%= c.race %>
+                              <% } else { %>
+                                   N/A 
+                              <% } %> 
                         </td>
                         <td> 
-                            <%= c.base %>
+                            <% if (c.base !== "null") { %>
+                                <%= c.base %>
+                              <% } else { %>
+                                 N/A 
+                            <% }%> 
                         </td>
                         <td> 
                             <a class="btn btn-primary" role="button" href="/characters/<%= c.apiId %>">Details</a>
@@ -51,6 +59,7 @@
     <% } %>
     <!-- search results by name-->
     <% if (characterData) { %>
+        <h3>Search results:</h3>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>

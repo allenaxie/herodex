@@ -49,41 +49,48 @@
                              N/A 
                         <% }%> 
                     </td>
-                    <!-- if (user is logged in and character not already in 'my team' list) -->
-                        <td> 
-                            <form action="/characters/<%=characterData.id%>" method="POST">
-                                <button type="submit" class="btn btn-success add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
-                            </form>
-                            <!-- if character is already in 'my team' list -->
-                            <form action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
-                            </form>
-                        </td>
+                    <!-- if (user is logged in and character NOT already in 'my team' list) -->
+                       
+                            <td> 
+                                <form action="/characters/<%=characterData.id%>" method="POST">
+                                    <button type="submit" class="btn btn-success add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
+                                </form>
+                                <!-- if user is logged in and character is already in 'my team' list -->
+                                <form action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
+                                </form>
+                            </td>
+
+                     
                 </tbody>
             </table>
     <% } %>
         </div>
         <!-- Review form -->
-        <div>
-            <form method="POST" action="/characters/<%= characterData.id%>/reviews"> 
-                <div class="form-group" >
-                    <label for="comment">Review:</label>
-                    <textarea class="form-control" row="3" id="comment" name="content" placeholder="Add a comment..."></textarea>
-                    <label>Rating:</label>
-                    <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
-                    <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>
-                    <label class="radio-inline"><input type="radio" name="rating" value="3">3</label>
-                    <label class="radio-inline"><input type="radio" name="rating" value="4">4</label>
-                    <label class="radio-inline"><input type="radio" name="rating" value="5" selected>5</label>
-                    <div>
-                        <button>Cancel</button>
-                        <button type="submit">Add review</button>
+        <!-- if character is in team -->
+        <% if (characters !== null) { %>
+            <div>
+                <form method="POST" action="/characters/<%= characterData.id%>/reviews"> 
+                    <div class="form-group" >
+                        <label for="comment">Review:</label>
+                        <textarea class="form-control" row="3" id="comment" name="content" placeholder="Add a comment..."></textarea>
+                        <label>Rating:</label>
+                        <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="rating" value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="rating" value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="rating" value="5" selected>5</label>
+                        <div>
+                            <button>Cancel</button>
+                            <button type="submit">Add review</button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        <% } %>
         <!-- show reviews -->
-        <% if (characters.reviews.length) { %>
+        <!-- if character is in team and there are reviews -->
+        <% if (characters !== null && characters.reviews.length) { %>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -121,6 +128,8 @@
                 
             </table>
 
+        <% } else { %>
+            <span>No reviews yet</span>   
         <% } %>
 
   </body>
