@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/characters/show.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+  <body>
+      <h2 class="title"><%= title %> </h2>
+        <!-- Review form -->
+        <div>
+            <form method="POST" action="/reviews/<%= character.reviews._id%>?_method=PUT"> 
+                <div class="form-group" >
+                    <label for="comment">Review:</label>
+                    <textarea class="form-control" row="3" id="comment" name="content" value="character.reviews.text"></textarea>
+                    <label>Rating:</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="3">3</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="4">4</label>
+                    <label class="radio-inline"><input type="radio" name="rating" value="5" selected>5</label>
+                    <div>
+                        <button>Cancel</button>
+                        <button type="submit">Edit review</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+       
+
+  </body>
+</html>

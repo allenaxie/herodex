@@ -106,6 +106,7 @@
                     <td><%= r.rating %> </td>
                     <% if (user && user._id.equals(r.user)) { %>
                     <td>
+                        <a href="/reviews/<%= r._id%>/edit">Edit</a>
                         <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
                             <button type="submit"><span class="glyphicon glyphicon-remove"></span></button>
                         </form>

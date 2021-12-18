@@ -1,8 +1,13 @@
 const Character = require('../models/character');
+const fetch = require('node-fetch');
+const token = process.env.SUPERHERO_API_KEY
+const rootURL = `https://superheroapi.com/api/${token}`
 
 module.exports = {
     create,
     delete: deleteReview,
+    edit,
+    update,
 }
 
 function create (req,res) {
@@ -42,4 +47,25 @@ function deleteReview (req,res,next) {
            return next(err);
        })
    })
+}
+
+function edit (req,res) {
+    // Note the cool "dot" syntax to query on the property of a subdoc
+    Character.findOne({'reviews._id': req.params.id}, function (err, character) {
+        console.log(character.reviews);
+        console.log(req.params.id);
+        res.render('characters/reviews/edit', {title:"Edit review", character});
+    })
+}
+
+function update (req,res) {
+    Character.findOne({'reviews._id': req.params.id}, function (err, character) {
+        const reviewSubdoc = character.reviews.id(req.params.id);
+        if (!reviewSubdoc.userId.equals(req.user._id)) return res.redirect(`/characters/${character.apiId}`);
+        reviewSubdoc.text = req.body.text;
+        character.save(function(err) {
+            console.log(character.reviews);
+            res.redirect(`/characters/${character.apiId}`);
+        })
+    })
 }
