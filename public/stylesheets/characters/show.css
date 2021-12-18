@@ -43,3 +43,12 @@ form {
 .col:nth-child(1) {
     margin-right: 5px;
 }
+
+h4 {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.editBtn {
+    margin-right: 10px;
+}

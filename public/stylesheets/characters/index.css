@@ -8,6 +8,7 @@ body {
     font-size: 40px;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 }
 
 .form-container {
@@ -25,13 +26,13 @@ body {
 }
 
 .search-bar {
-    width: 90px;
+    width: 120px;
     -webkit-transition: width 0.6s ease-in-out;
     transition: width 0.6s ease-in-out;
     margin-right: 5px;
 }
 .search-bar:focus {
-    width: 170px;
+    width: 180px;
 }
 
 .search-btn {

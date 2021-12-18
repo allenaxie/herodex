@@ -13,7 +13,7 @@
       <div class= "hero-card">
     <% if (characterData) { %>
         <table class="table table-striped">
-            <thead class="thead-dark">
+            <thead class="table-dark">
                 <tr>
                     <th>ID</th> 
                     <th>Name</th>
@@ -21,6 +21,8 @@
                     <th>Description</th>
                     <th>Race</th>
                     <th>Relatives</th>
+                    <th></th>
+
                 </tr>
             </thead>
 
@@ -53,15 +55,15 @@
                     </td>
                     <!-- if (user is logged in and character NOT already in 'my team' list) -->
                        
-                            <td> 
-                                <form action="/characters/<%=characterData.id%>" method="POST">
-                                    <button type="submit" class="btn btn-success add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
-                                </form>
-                                <!-- if user is logged in and character is already in 'my team' list -->
-                                <form action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
-                                    <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
-                                </form>
-                            </td>
+                    <td> 
+                        <form action="/characters/<%=characterData.id%>" method="POST">
+                            <button type="submit" class="btn btn-success add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
+                        </form>
+                        <!-- if user is logged in and character is already in 'my team' list -->
+                        <form action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
+                        </form>
+                    </td>
 
                      
                 </tbody>
@@ -118,6 +120,7 @@
         <!-- show reviews -->
         <!-- if character is in team and there are reviews -->
         <% if (characters !== null && characters.reviews.length) { %>
+            <h4> Reviews:</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -139,11 +142,17 @@
                     <td><%= r.content %> </td>
                     <td><%= r.rating %> </td>
                     <% if (user && user._id.equals(r.user)) { %>
-                    <td>
-                        <a href="/reviews/<%= r._id%>/edit">Edit</a>
-                        <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
-                            <button type="submit"><span class="glyphicon glyphicon-remove"></span></button>
-                        </form>
+                    <td >
+                        <table class="table">
+                            <tr>
+                                <a class="btn btn-primary editBtn" href="/reviews/<%= r._id%>/edit">Edit</a>
+                            </tr>
+                            <tr>
+                                <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-danger deleteBtn" type="submit"><span class="bi-x-lg"></span></button>
+                                </form>
+                            </tr>
+                        </table>
                     </td>
                     <% } %>
                 <% }) %>
