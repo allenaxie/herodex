@@ -55,7 +55,7 @@ function edit (req,res) {
         console.log(` character.reviews.content: ${character.reviews.content}`) ;
         console.log(` character.reviews.rating: ${character.reviews.rating}`);
         console.log(` character.reviews.userName: ${character.reviews.userName}`);
-        res.render('characters/reviews/edit', {title:"Edit review", character});
+        res.render('characters/edit', {title:"Edit review", character});
     })
 }
 
