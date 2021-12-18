@@ -33,18 +33,12 @@ body {
 .search-bar:focus {
     width: 170px;
 }
+
 .search-btn {
-    width: 40px;
-    height: 26px;
-}
-
-
-.btn {
+    width: 100px;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
+
 
 .char-image {
     width: 100px;

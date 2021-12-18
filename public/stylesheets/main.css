@@ -27,9 +27,9 @@ body {
 #slogan {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  font-size: 25px;
+  font-size: 20.5px;
   font-weight: bold;
   background: #1B1B1B;
   padding: 4px;

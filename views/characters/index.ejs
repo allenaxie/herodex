@@ -1,18 +1,19 @@
 <%- include('../partials/header') %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-      <title>My team</title>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/characters/index.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
-  <body>
+<body>
     <h2 class="title"><%= title %> </h2>
     <!-- search bar -->
     <form class="form-container" action="/characters" method="GET">
         <div class="search-container">
-            <input class="search-bar" type="text" name="characterName" placeholder="Hero name...">
-            <button class="btn glyphicon glyphicon-search align-self-end"></button>&nbsp
+            <input class="search-bar form-control" type="text" name="characterName" placeholder="Hero name...">
+            <button type="submit" class="btn btn-dark search-btn">Search</button>&nbsp
         </div>
     </form>
     <!-- my team -->
@@ -52,7 +53,7 @@
                             <% }%> 
                         </td>
                         <td> 
-                            <a class="btn btn-primary" role="button" href="/characters/<%= c.apiId %>">Details</a>
+                            <a class="btn btn-info" role="button" href="/characters/<%= c.apiId %>">Details</a>
                         </td>
                     </tbody>
                 <% }) %>
@@ -95,7 +96,7 @@
                         <% }%> 
                     </td>
                     <td> 
-                        <a class="btn btn-primary" role="button" href="/characters/<%= c.id %>">Details</a>
+                        <a class="btn btn-info" role="button" href="/characters/<%= c.id %>">Details</a>
                     </td>
                 </tbody>
             <% }) %>
