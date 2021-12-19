@@ -4,7 +4,6 @@
   <head>
       <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/characters/edit.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
   <body>
       <h2 class="title"><%= title %> </h2>
@@ -12,21 +11,42 @@
         <div>
             <form action="/reviews/<%= character.reviews._id%>?_method=PUT" method="POST"> 
                 <div class="form-group" >
-                    <div class="review-container">
-                        <label>Review:</label>
-                        <textarea class="form-control" row="3" id="comment" name="content" value="character.reviews.content"></textarea>
-                    </div>
-                    <div class="rating-container">
-                        <label>Rating:</label>
-                        <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
-                        <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>
-                        <label class="radio-inline"><input type="radio" name="rating" value="3">3</label>
-                        <label class="radio-inline"><input type="radio" name="rating" value="4">4</label>
-                        <label class="radio-inline"><input type="radio" name="rating" value="5" selected>5</label>
+                    <div class="row">
+                        <div class="form-floating">
+                            <textarea class="form-control commentTextarea" rows="3" id="comment" name="content" autofocus placeholder="Add a comment..." ></textarea>
+                            <label>Enter comments here...</label>
+                        </div>
+                        <div class="col">
+                            <label>Rating:</label>
+                        </div>
+                        <div class="form-check col">
+                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" >1
+                            <label class="form-check-label" for="radio1"></label>
+                        </div>
+                        <div class="form-check col">
+                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="2">2
+                            <label class="form-check-label" for="radio2"></label>
+                        </div>
+                        <div class="form-check col">
+                            <input type="radio" class="form-check-input" name="optradio" value="3">3
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="form-check col">
+                            <input type="radio" class="form-check-input" name="optradio" value="4">4
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="form-check col">
+                            <input type="radio" class="form-check-input" name="optradio" value="5" checked>5
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col"></div>
                     </div>
                     <div>
-                        <button>Cancel</button>
-                        <button type="submit">Edit review</button>
+                        <button type="reset" class="cancelReviewBtn">Cancel</button>
+                        <button type="submit">Add review</button>
                     </div>
                 </div>
             </form>
