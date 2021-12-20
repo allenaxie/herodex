@@ -33,6 +33,7 @@ const characterSchema = new Schema({
     base: String,
     relatives: String,
     reviews: [reviewSchema],
+    reviewId: String,
 }, {
     timestamps: true
 });

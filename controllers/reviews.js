@@ -28,6 +28,7 @@ function create (req,res) {
 }
 
 function deleteReview (req,res,next) {
+    console.log(req.params.id, 'paramssss')
    // Note the cool "dot" syntax to query on the property of a subdoc
    Character.findOne({'reviews._id' : req.params.id})
    .then(function(character) {
@@ -48,26 +49,30 @@ function deleteReview (req,res,next) {
 }
 
 function edit (req,res) {
+    console.log('req params iddddd',req.params.id)
     // Find the character linked to the review we are editing
     Character.findOne({'reviews._id': req.params.id})
-    .then(character => {
+    .then(characters => {
+        characters.reviewId = req.params.id
+        console.log('CHARACTER REVIEWWWWS',characters.reviews)
         // Need to access properties of characters.reviews to access _.id in edit page
-        console.log(` character.reviews: ${character.reviews}`) ;
-        console.log(` character.reviews.content: ${character.reviews.content}`);
-        console.log(` character.reviews.rating: ${character.reviews.rating}`);
-        console.log(` character.reviews.userName: ${character.reviews.userName}`);
-        res.render('characters/edit', {title:"Edit review", character});
+        res.render('characters/edit', {title:"Edit review", characters});
     })
 }
 
 function update (req,res) {
-    console.log(req.body);
+    console.log(req.params.id, 'req params IDDDDD')
+    // find character linked to the review we are updating
     Character.findOne({'reviews._id': req.params.id}, function (err, character) {
-        console.log(character);
-        const reviewSubdoc = character.reviews.id(req.params.id);
-        if (!reviewSubdoc.userId.equals(req.user._id)) return res.redirect(`/characters/${character.apiId}`);
-        reviewSubdoc.text = req.body.text;
-        console.log(reviewSubdoc.text)
+        console.log(character, 'character');
+        // Access the review
+        console.log(req.params.id, 'PARAMSIDDDDDD') // equals review id
+        const reviewSubdoc = character.reviews.id(req.params.id)
+        console.log(reviewSubdoc,'REVIEW SUB DOCCCCCCCCC');
+        if ((!req.user) || !reviewSubdoc.user.equals(req.user._id)) return res.redirect(`/characters/${character.apiId}`);
+        console.log(req.body,'REQ BODYYYYYYYYY');
+        reviewSubdoc.content = req.body.content;
+        reviewSubdoc.rating= req.body.optradio;
         character.save(function(err) {
             console.log(character.reviews);
             res.redirect(`/characters/${character.apiId}`);
