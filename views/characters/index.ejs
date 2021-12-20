@@ -26,13 +26,12 @@
         <div class="grid-container"> 
             <div class="row">
                 <% characters.forEach(function (c) { %>
-                <div class="card img-fluid">
+                <div class="card img-fluid shadow-lg">
                     <img class="card-image" src=<%= c.image %>>
                     <div class="card-body card-img-overlay">
                         <h5>ID# <%= c.apiId %></h4>
                         <h2><%= c.name %></h2>
                         <h5>Base:
-                            <% console.log(c.base.length); %>
                             <% if (c.base !== "null" && (c.base.length < 16)) { %>  
                                 <%= c.base %>
                               <% } else { %>

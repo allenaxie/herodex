@@ -1,3 +1,10 @@
 .nav-link:hover {
     background-color: rgb(73, 73, 73);
   }
+
+  @media only screen and (min-width: 768px) {
+    .navbar-nav, .collapse,.nav-item,.nav-link {
+      display: flex;
+      justify-content: end;
+    }
+  }
