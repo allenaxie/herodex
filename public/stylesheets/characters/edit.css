@@ -41,3 +41,8 @@ h4 {
 .rating-container {
     margin-top:10px;
 }
+
+.commentTextarea {
+    max-width: 70%;
+    margin-bottom: 15px;
+}

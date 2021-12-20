@@ -34,7 +34,7 @@ body {
     margin-right: 5px;
 }
 .search-bar:focus {
-    width: 180px;
+    width: 250px;
 }
 
 .search-btn {
