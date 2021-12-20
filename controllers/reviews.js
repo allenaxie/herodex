@@ -48,8 +48,9 @@ function deleteReview (req,res,next) {
 }
 
 function edit (req,res) {
-    // Note the cool "dot" syntax to query on the property of a subdoc
-    Character.findOne({'reviews._id': req.params.id}).then( character => {
+    // Find the character linked to the review we are editing
+    Character.findOne({'reviews._id': req.params.id})
+    .then(character => {
         // Need to access properties of characters.reviews to access _.id in edit page
         console.log(` character.reviews: ${character.reviews}`) ;
         console.log(` character.reviews.content: ${character.reviews.content}`);

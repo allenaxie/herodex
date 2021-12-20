@@ -54,18 +54,19 @@
                         <% }%> 
                     </td>
                     <!-- if (user is logged in and character NOT already in 'my team' list) -->
-                       
                     <td> 
+                        <% if (user && (characters === null)) { %>
                         <form action="/characters/<%=characterData.id%>" method="POST">
                             <button type="submit" class="btn btn-success add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
                         </form>
+                        <% } %>
                         <!-- if user is logged in and character is already in 'my team' list -->
-                        <form action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
-                            <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
-                        </form>
+                        <% if (user && characters) { %>
+                            <form action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
+                            </form>
+                        <% } %>
                     </td>
-
-                     
                 </tbody>
             </table>
     <% } %>
@@ -73,7 +74,7 @@
         <!-- Review form -->
         <!-- if character is in team -->
         <% if (characters !== null) { %>
-            <div>
+            <div class="review-form-container">
                 <form method="POST" action="/characters/<%= characterData.id%>/reviews"> 
                     <div class="form-group" >
                         <div class="form-floating">

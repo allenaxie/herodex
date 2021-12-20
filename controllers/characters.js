@@ -37,6 +37,7 @@ function show (req,res) {
         // convert to JSON format
         .then(res => res.json())
         .then(data => {
+            console.log(characters)
             res.render("characters/show", {title: "Hero details", characterData: data, characters})
         })
     });

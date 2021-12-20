@@ -1,6 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
     height: 100vh;
 }
 
@@ -29,11 +30,6 @@ body {
     width: 40px;
 }
 
-form {
-    margin-left: 15px;
-    width: 600px;
-}
-
 .row {
     display: flex;
     margin-bottom: 10px;
@@ -51,4 +47,9 @@ h4 {
 
 .editBtn {
     margin-right: 10px;
+}
+
+.review-form-container {
+    margin-left: 10px;
+    margin-right: 40px;
 }
