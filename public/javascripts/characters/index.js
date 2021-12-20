@@ -7,14 +7,12 @@ let cardBodyEl = document.querySelectorAll('.card-body');
 cardImageEl.forEach(function (c) {
     c.addEventListener('mouseenter', function (e) {
         // display the card body of event
-        console.log(e.target);
         $(e.target).siblings(".card-body").fadeIn();
     });
 })
 cardBodyEl.forEach(function (c) {
     c.addEventListener('mouseleave', function (e) {
         // display the card body of event
-        console.log(e.target);
         $(e.target).fadeOut();
     });
 })

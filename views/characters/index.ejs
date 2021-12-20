@@ -20,7 +20,7 @@
             </div>
         </div>
     </form>
-    <!-- my team -->
+    <!-- my team cards -->
     <% if (characters.length) { %>
         <% characters.forEach(function (c) { %>
         <div class="card img-fluid">
@@ -39,45 +39,6 @@
             </div>
         </div>
         <% }) %>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th> 
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Gender</th>
-                        <th>Race</th>
-                        <th>Base</th>
-                    </tr>
-                </thead>
-                <% characters.forEach(function (c) { %>
-                    <tbody>
-                        <td> <%= c.apiId  %> </td>
-                        <td> <%= c.name  %> </td>
-                        <td> <image class="char-image"src=<%= c.image %>> </td>
-                        <td> 
-                            <%= c.gender %>
-                        </td>
-                        <td> 
-                            <% if (c.race !== "null") { %>
-                                <%= c.race %>
-                              <% } else { %>
-                                   N/A 
-                              <% } %> 
-                        </td>
-                        <td> 
-                            <% if (c.base !== "null") { %>
-                                <%= c.base %>
-                              <% } else { %>
-                                 N/A 
-                            <% }%> 
-                        </td>
-                        <td> 
-                            <a class="btn btn-info" role="button" href="/characters/<%= c.apiId %>">Details</a>
-                        </td>
-                    </tbody>
-                <% }) %>
-                </table>
     <% } %>
     <!-- search results by name-->
     <% if (characterData) { %>
