@@ -57,3 +57,18 @@ body {
     margin-top: 35px;
     font-size: 30px;
 }
+
+/* card */
+.card {
+    width: 250px;
+}
+.card-image {
+    width: 100%;
+}
+.card-body {
+    display: none;
+    background:#383838d8;
+    color: white;
+    -webkit-transition: width 0.6s ease-in-out;
+    transition: width 0.6s ease-in-out;
+}

@@ -53,28 +53,24 @@ function edit (req,res) {
     // Find the character linked to the review we are editing
     Character.findOne({'reviews._id': req.params.id})
     .then(characters => {
+        // Save the review id we are editing
         characters.reviewId = req.params.id
-        console.log('CHARACTER REVIEWWWWS',characters.reviews)
         // Need to access properties of characters.reviews to access _.id in edit page
         res.render('characters/edit', {title:"Edit review", characters});
     })
 }
 
 function update (req,res) {
-    console.log(req.params.id, 'req params IDDDDD')
     // find character linked to the review we are updating
     Character.findOne({'reviews._id': req.params.id}, function (err, character) {
-        console.log(character, 'character');
-        // Access the review
-        console.log(req.params.id, 'PARAMSIDDDDDD') // equals review id
+        // Access the review we are changing
         const reviewSubdoc = character.reviews.id(req.params.id)
-        console.log(reviewSubdoc,'REVIEW SUB DOCCCCCCCCC');
+        // if no user or userId doesn't match, redirect to character screen
         if ((!req.user) || !reviewSubdoc.user.equals(req.user._id)) return res.redirect(`/characters/${character.apiId}`);
-        console.log(req.body,'REQ BODYYYYYYYYY');
+        // save the new comment and rating
         reviewSubdoc.content = req.body.content;
         reviewSubdoc.rating= req.body.optradio;
         character.save(function(err) {
-            console.log(character.reviews);
             res.redirect(`/characters/${character.apiId}`);
         })
     })
