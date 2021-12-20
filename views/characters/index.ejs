@@ -22,27 +22,28 @@
     </form>
     <!-- my team cards -->
     <% if (characters.length) { %>
-        
-            <div class="row row-cols-2">
+        <div class="grid-container"> 
+            <div class="row">
                 <% characters.forEach(function (c) { %>
                 <div class="card img-fluid">
                     <img class="card-image" src=<%= c.image %>>
                     <div class="card-body card-img-overlay">
-                        <h4>ID# <%= c.apiId %></h4>
+                        <h5>ID# <%= c.apiId %></h4>
                         <h2><%= c.name %></h2>
-                        <h4>Base:
-                            <% if (c.base !== "null") { %>
+                        <h5>Base:
+                            <% console.log(c.base.length); %>
+                            <% if (c.base !== "null" && (c.base.length < 16)) { %>  
                                 <%= c.base %>
                               <% } else { %>
                                  N/A 
                             <% }%>     
                         </h4>
-                        <a class="btn btn-info" role="button" href="/characters/<%= c.apiId %>">Details</a>
+                        <a class="btn btn-info card-btn" role="button" href="/characters/<%= c.apiId %>">Details</a>
                     </div>
                 </div>
                 <% }) %>
             </div>
-       
+        </div>
     <% } %>
     <!-- search results by name-->
     <% if (characterData) { %>

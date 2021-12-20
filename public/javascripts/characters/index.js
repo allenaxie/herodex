@@ -19,8 +19,8 @@ cardBodyEl.forEach(function (c) {
     });
 })
 
+// add column class
 let cardArray = [];
-
 cardEl.forEach(function (c) {
     cardArray.push(c);
     // if card is even-numbered index

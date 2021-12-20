@@ -11,6 +11,7 @@ body {
     margin-top: 15px;
 }
 
+/* search bar */
 .form-container {
     display: flex;
     justify-content: center;
@@ -59,16 +60,31 @@ body {
 }
 
 /* card */
+
 .card {
     width: 250px;
+    margin-left: 80px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    
 }
+
 .card-image {
     width: 100%;
 }
 .card-body {
     display: none;
+    text-align: center;
     background:#383838d8;
     color: white;
     -webkit-transition: width 0.6s ease-in-out;
     transition: width 0.6s ease-in-out;
+}
+
+h4, h2 {
+    line-height: 2.0;
+}
+
+.card-btn {
+    margin-top: 10px;
 }
