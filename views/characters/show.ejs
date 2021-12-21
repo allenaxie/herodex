@@ -14,8 +14,8 @@
       <% if (characterData) { %>
       <!-- Hero details card -->
         <div class="container mt-3 mb-3">
-          <div class="card shadow-lg">
-              <div class="card-header">
+            <div class="card shadow-lg">
+                <div class="card-header">
                     <!-- ID -->
                     <div class="row"> 
                         <div class="col-2 id-num">#<%= characterData.id  %></div>
@@ -30,86 +30,196 @@
                         <image class="char-image col-4" src= <%=characterData.image.url %>> 
                         <div class="col-4"></div>
                     </div>
-              </div>
-              <div class="card-body">
+                </div>
+                <div class="card-body">
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
                       <li class="nav-item">
                           <a class="nav-link active" data-bs-toggle="tab" href="#profile">Profile</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" data-bs-toggle="tab" href="#relatives">Relatives</a>
+                        <a class="nav-link" data-bs-toggle="tab" href="#biography">Biography</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#stats">Stats</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="tab" href="#affiliations">Affiliations</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="tab" href="#work">Work</a>
                       </li>
                     </ul>
                   <!-- tab content -->
+                    <!-- Profile -->
                   <div class="tab-content">
                       <div id="profile" class="container tab-pane active">
                           <h3 class="pane-heading">Profile:</h3>
-                              Full-name: <%= characterData.biography["full-name"] %><br><br>
-                              Aliases: <%= characterData.biography.aliases %><br><br>
-                              Birthplace: <%= characterData.biography["place-of-birth"] %><br><br>
-                              Publisher: <%= characterData.biography.publisher %><br><br>
-                              Alignment: <%= characterData.biography.alignment %><br><br>
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr >
+                                        <td>
+                                            Gender:
+                                        </td>
+                                        <td>
+                                            <%= characterData.appearance.gender %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Race:
+                                        </td>
+                                        <td>
+                                            <%= characterData.appearance.race %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Height:
+                                        </td>
+                                        <td>
+                                            <% characterData.appearance.height[0] %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Weight: 
+                                        </td>
+                                        <td>
+                                            <% characterData.appearance.weight[0] %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Eye-color:
+                                        </td>
+                                        <td>
+                                            <% characterData.appearance["eye-color"] %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Hair-color:
+                                        </td>
+                                        <td>
+                                            <% characterData.appearance["hair-color"] %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                       </div>
-                      <div id="relatives" class="container tab-pane fade">
-                          <h3 class="pane-heading">Relatives:</h3>
+                        <!-- Biography -->
+                        <div id="biography" class="container tab-pane">
+                            <h3 class="pane-heading">Biography:</h3>
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr >
+                                        <td>
+                                            Full-name: 
+                                        </td>
+                                        <td>
+                                            <%= characterData.biography["full-name"] %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Aliases:
+                                        </td>
+                                        <td>
+                                            <%= characterData.biography.aliases %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Birthplace:
+                                        </td>
+                                        <td>
+                                            <%= characterData.biography["place-of-birth"] %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Publisher: 
+                                        </td>
+                                        <td>
+                                            <%= characterData.biography.publisher %>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Alignment:
+                                        </td>
+                                        <td>
+                                            <%= characterData.biography.alignment %>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Stats -->
+                      <div id="stats" class="container tab-pane">
+                        <h3 class="pane-heading">Stats:</h3>
+                        <table class="table table-hover">
+                            <tbody>
+                                <% for (let s in characterData.powerstats) { %>
+                                <tr >
+                                    <td>
+                                        <%= s%>: 
+                                    </td>
+                                    <td>
+                                        <%=characterData.powerstats[s] %> 
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                      </div>
+                        <!-- Affiliations -->
+                        <div id="affiliations" class="container tab-pane fade">
+                          <h3 class="pane-heading">Affiliations:</h3>
                           <% if (characterData.connections.relatives !== "null") { %>
                             <%= characterData.connections.relatives %>
                           <% } else { %>
                              N/A 
-                        <% }%> 
-                      </div>
+                             <% }%> 
+                        </div>
+                        <!-- Work -->
+                        <div id="work" class="container tab-pane fade">
+                            <h3 class="pane-heading">Work:</h3>
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr >
+                                        <td>
+                                            Occupation:
+                                        </td>
+                                        <td>
+                                            <% if (characterData.work.occupation !== "null") { %>
+                                                <%=characterData.work.occupation %> 
+                                            <% } else { %>
+                                                N/A 
+                                                <% }%> 
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>
+                                            Base:
+                                        </td>
+                                        <td>
+                                            <% if (characterData.work.base !== "null") { %>
+                                                <%=characterData.work.base %> 
+                                            <% } else { %>
+                                                N/A 
+                                                <% }%> 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                   </div>
-              </div>
-            </div>
-        </div>
-
-
-
-      <div class= "hero-card">
-        <table class="table table-striped">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th> 
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Description</th>
-                    <th>Race</th>
-                    <th>Relatives</th>
-                    <th></th>
-                </tr>
-            </thead>
-
-                <tbody>
-                    <td> <%= characterData.id  %> </td>
-                    <td> <%= characterData.name  %> </td>
-                    <td>
-                        <image class="char-image" src= <%=characterData.image.url %>> 
-                    </td>
-                    <td> 
-                        Full-name: <%= characterData.biography["full-name"] %><br><br>
-                        Aliases: <%= characterData.biography.aliases %><br><br>
-                        Birthplace: <%= characterData.biography["place-of-birth"] %><br><br>
-                        Publisher: <%= characterData.biography.publisher %><br><br>
-                        Alignment: <%= characterData.biography.alignment %><br><br>
-                    </td>
-                    <td> 
-                        <% if (characterData.appearance.race !== "null") { %>
-                          <%= characterData.appearance.race %>
-                        <% } else { %>
-                             N/A 
-                        <% } %> 
-                    </td>
-                    <td> 
-                        <% if (characterData.connections.relatives !== "null") { %>
-                            <%= characterData.connections.relatives %>
-                          <% } else { %>
-                             N/A 
-                        <% }%> 
-                    </td>
-                    <!-- if (user is logged in and character NOT already in 'my team' list) -->
-                    <td> 
-                        <% if (user && (characters === null)) { %>
+                </div>
+                <div class="card-footer">
+                    <% if (user && (characters === null)) { %>
                         <form action="/characters/<%=characterData.id%>" method="POST">
                             <button type="submit" class="btn btn-success add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
                         </form>
@@ -120,11 +230,11 @@
                                 <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
                             </form>
                         <% } %>
-                    </td>
-                </tbody>
-            </table>
-    <% } %>
+                </div>
+            </div>
         </div>
+    <% } %>
+        
         <!-- Review form -->
         <!-- if character is in team -->
         <% if (characters !== null) { %>
