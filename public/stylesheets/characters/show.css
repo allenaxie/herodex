@@ -59,3 +59,18 @@ h4 {
     max-width: 70%;
     margin-bottom: 15px;
 }
+
+/* hero card */
+.id-num {
+    left: 30px;
+    font-size: 20px;
+}
+
+.char-name {
+    text-align: center;
+    font-size: 40px;
+}
+
+.pane-heading {
+    margin-top: 15px;
+}
