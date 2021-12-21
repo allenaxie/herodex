@@ -47,13 +47,10 @@ body {
     margin-bottom: 20px;
 }
 
-.add-char-btn, .del-char-btn {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.add-review-btn {
+.add-char-btn {
     margin-left: 20px;
 }
+
 .del-char-btn {
     margin-right: 20px;
 }
@@ -74,6 +71,10 @@ body {
 
 .editBtn {
     margin-right: 10px;
+}
+
+.add-review-btn {
+    margin-left: 20px;
 }
 
 .commentTextarea {
