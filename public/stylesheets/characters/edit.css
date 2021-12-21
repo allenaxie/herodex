@@ -12,7 +12,6 @@ h2 {
 
 form {
     margin-left: 15px;
-    width: 600px;
 }
 
 .row {
@@ -40,9 +39,14 @@ h4 {
 
 .rating-container {
     margin-top:10px;
+    max-width: 70%;
 }
 
 .commentTextarea {
     max-width: 70%;
     margin-bottom: 15px;
+}
+
+.tempText {
+    margin-left: 10px;
 }

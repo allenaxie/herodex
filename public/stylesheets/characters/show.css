@@ -52,6 +52,7 @@ h4 {
 .review-form-container {
     margin-left: 10px;
     margin-right: 40px;
+    max-width: 70%;
 }
 
 .commentTextarea {
