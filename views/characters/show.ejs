@@ -18,11 +18,12 @@
                 <div class="card-header">
                     <!-- ID -->
                     <div class="row"> 
-                        <div class="col-2 id-num">#<%= characterData.id  %></div>
+                        <div class="col-4 id-num">#<%= characterData.id  %></div>
+                        <div class="col"></div>
                     </div>
                     <!-- Name -->
                     <div class="row">
-                        <div class="col 3 char-name"><%= characterData.name  %></div>
+                        <div class="col char-name"><%= characterData.name  %></div>
                     </div>
                     <!-- Image -->
                     <div class="row">
@@ -220,15 +221,21 @@
                 </div>
                 <div class="card-footer">
                     <% if (user && (characters === null)) { %>
-                        <form action="/characters/<%=characterData.id%>" method="POST">
-                            <button type="submit" class="btn btn-success add-char-btn" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
-                        </form>
+                        
+                            <form class="row" action="/characters/<%=characterData.id%>" method="POST">
+                                <button type="submit" class="btn btn-success add-char-btn col-4" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
+                                <div class="col"></div>
+                            </form>
+                       
                         <% } %>
                         <!-- if user is logged in and character is already in 'my team' list -->
                         <% if (user && characters) { %>
-                            <form action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn btn-danger del-char-btn"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
-                            </form>
+                            
+                                <form class="row" action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
+                                    <div class="col"></div>
+                                    <button type="submit" class="btn btn-danger del-char-btn col-4"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
+                                </form>
+                            
                         <% } %>
                 </div>
             </div>

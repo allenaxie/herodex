@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bungee+Shade&family=Marcellus&family=Orbitron:wght@600&family=Permanent+Marker&family=Teko&family=Share+Tech+Mono&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
@@ -27,11 +29,17 @@ body {
 .id-num {
     left: 30px;
     font-size: 20px;
+    font-weight: bold;
+    font-family: Orbitron;
 }
 
 .char-name {
     text-align: center;
-    font-size: 40px;
+    font-size: 45px;
+    font-family: Orbitron;
+    text-shadow: 4px 4px 4px #868686;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .pane-heading {
@@ -42,10 +50,12 @@ body {
 .add-char-btn, .del-char-btn {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 100px;
 }
 .add-review-btn {
     margin-left: 20px;
+}
+.del-char-btn {
+    margin-right: 20px;
 }
 
 .user-image {
