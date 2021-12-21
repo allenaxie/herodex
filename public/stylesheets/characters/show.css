@@ -13,21 +13,9 @@ body {
     margin-bottom: 20px;
 }
 
+/* hero card */
 .char-image {
     width: 100px;
-}
-
-.add-char-btn, .del-char-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 10px;
-    width: 150px;
-}
-
-.user-image {
-    width: 40px;
 }
 
 .row {
@@ -36,31 +24,6 @@ body {
     margin-top: 10px;
 }
 
-.col:nth-child(1) {
-    margin-right: 5px;
-}
-
-h4 {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.editBtn {
-    margin-right: 10px;
-}
-
-.review-form-container {
-    margin-left: 10px;
-    margin-right: 40px;
-    max-width: 70%;
-}
-
-.commentTextarea {
-    max-width: 70%;
-    margin-bottom: 15px;
-}
-
-/* hero card */
 .id-num {
     left: 30px;
     font-size: 20px;
@@ -74,4 +37,46 @@ h4 {
 .pane-heading {
     margin-top: 15px;
     margin-bottom: 20px;
+}
+
+.add-char-btn, .del-char-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+.add-review-btn {
+    margin-left: 20px;
+}
+
+.user-image {
+    width: 40px;
+}
+
+.col:nth-child(1) {
+    margin-right: 5px;
+}
+
+/* Reviews */
+.review-heading {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.editBtn {
+    margin-right: 10px;
+}
+
+.commentTextarea {
+    margin-bottom: 15px;
+}
+
+.tempText {
+    margin-left: 10px;
+}
+
+.no-review {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }

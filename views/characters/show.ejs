@@ -241,11 +241,16 @@
             <div class="review-form-container">
                 <form method="POST" action="/characters/<%= characterData.id%>/reviews"> 
                     <div class="form-group" >
-                        <div class="form-floating">
-                            <textarea class="form-control commentTextarea" rows="3" id="comment" name="content" placeholder="Add a comment..."></textarea>
-                            <label>Enter comments here...</label>
-                        </div>
                         <div class="row">
+                            <div class="col-2"></div>
+                            <div class="form-floating col">
+                                <textarea class="form-control commentTextarea" rows="3" id="comment" name="content" placeholder="Add a comment..."></textarea>
+                                <label class="tempText">Enter comments here...</label>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                        <div class="row ratingContainer">
+                            <div class="col-3"></div>
                             <div class="col">
                                 <label>Rating:</label>
                             </div>
@@ -269,14 +274,13 @@
                                 <input type="radio" class="form-check-input" name="optradio" value="5" checked>5
                                 <label class="form-check-label"></label>
                               </div>
-                              <div class="col"></div>
-                              <div class="col"></div>
-                              <div class="col"></div>
-                              <div class="col"></div>
+                              <div class="col-3"></div>
                         </div>
-                        <div>
-                            <button type="reset" class="cancelReviewBtn">Cancel</button>
-                            <button type="submit">Add review</button>
+                        <div class="row">
+                            <div class="col"></div>
+                            <button type="reset" class="cancelReviewBtn col-2">Cancel</button>
+                            <button type="submit" class="col-2 add-review-btn">Add review</button>
+                            <div class="col"></div>
                         </div>
                     </div>
                 </form>
@@ -285,7 +289,7 @@
         <!-- show reviews -->
         <!-- if character is in team and there are reviews -->
         <% if (characters !== null && characters.reviews.length) { %>
-            <h4> Reviews:</h3>
+            <h4 class="review-heading"> Reviews:</h4>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -330,7 +334,7 @@
             </table>
 
         <% } else { %>
-            <span>No reviews yet</span>   
+            <span class="no-review">No reviews yet</span>   
         <% } %>
 
   </body>
