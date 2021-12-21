@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='/stylesheets/characters/show.css' />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+        
     </head>
   <body>
       <h2 class="title"><%= title %> </h2>
@@ -220,23 +220,27 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                    <% if (user && (characters === null)) { %>
-                        
+                    <% console.log('user',user); %>
+                    <% console.log('characters', characters); %>
+                    <!-- if there is an user AND (the character EITHER does not belong to any user's team 
+                        OR if current user does not already belong to the character)  -->
+                    <% if (user && ((characters === null) || (!characters.user.includes(user._id)))) { %>
                             <form class="row" action="/characters/<%=characterData.id%>" method="POST">
                                 <button type="submit" class="btn btn-success add-char-btn col-4" > <span class="glyphicon glyphicon-plus"></span> Add to team</button> 
                                 <div class="col"></div>
                             </form>
-                       
+                    <% } %>
+                    
+                       <!-- if there is an user AND the character is on at least one user's team
+                        AND if current user does belong to the character  -->
+                    <% if (user && characters !== null) { %>
+                        <% if (characters.user.includes(user._id)) { %>
+                            <form class="row" action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
+                                <div class="col"></div>
+                                <button type="submit" class="btn btn-danger del-char-btn col-4"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
+                            </form>
                         <% } %>
-                        <!-- if user is logged in and character is already in 'my team' list -->
-                        <% if (user && characters) { %>
-                            
-                                <form class="row" action="/characters/<%=characterData.id%>?_method=DELETE" method="POST">
-                                    <div class="col"></div>
-                                    <button type="submit" class="btn btn-danger del-char-btn col-4"><span class="glyphicon glyphicon-minus"></span> Remove from team</button>
-                                </form>
-                            
-                        <% } %>
+                    <% } %>    
                 </div>
             </div>
         </div>

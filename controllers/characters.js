@@ -43,10 +43,17 @@ function show (req,res) {
 };
 
 function addTeam (req,res) {
+    
+
+
+
+    console.log('req.params.id',req.params.id)
     // Add user to character's req.body
-    req.body.user = req.user.id
+    req.body.user = req.user.id;
+    console.log('reqbodyyyy',req.body)
     // Create an in-memory object (not saved in database yet)
     const character = new Character(req.body);
+    console.log('character', character)
     // Fetch character information
     fetch(`${rootURL}/${req.params.id}`)
     // convert to JSON format
