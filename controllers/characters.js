@@ -13,7 +13,7 @@ module.exports = {
 function index (req,res) {
     // Show my team
     // Find all characters in my team
-   Character.find({}, function (err, characters) {
+   Character.find({user:req.user.id}, function (err, characters) {
         const characterName = req.query.characterName; // character searched 
         // if no data in search input, render page
         if (!characterName) return res.render('characters/index', {title: "My team", characterData: null, characters})
