@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='/stylesheets/characters/show.css' />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        
+
     </head>
   <body>
       <h2 class="title"><%= title %> </h2>
@@ -321,20 +321,20 @@
                     <td><%= r.createdAt.toLocaleDateString() %></td>
                     <td><%= r.content %> </td>
                     <td><%= r.rating %> </td>
-                    <% if (user && user._id.equals(r.user)) { %>
                     <td >
                         <table class="table">
                             <tr>
+                                <% if (user && user._id.equals(r.user)) { %>
                                 <a class="btn btn-primary editBtn" href="/reviews/<%= r._id%>/edit">Edit</a>
                             </tr>
                             <tr>
                                 <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
                                     <button class="btn btn-danger deleteBtn" type="submit"><span class="bi-x-lg"></span></button>
                                 </form>
+                                <% } %>
                             </tr>
                         </table>
                     </td>
-                    <% } %>
                 <% }) %>
                     <tr>
                         <td colspan="3"></td>

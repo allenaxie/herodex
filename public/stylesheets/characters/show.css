@@ -3,7 +3,7 @@
 body {
     display: flex;
     flex-direction: column;
-    
+    overflow-x: hidden;
     height: 100vh;
 }
 
@@ -90,4 +90,8 @@ body {
     font-size: 30px;
     margin-bottom: 50px;
     margin-top: 50px;
+}
+
+.editBtn {
+    margin-bottom: 10px;
 }
