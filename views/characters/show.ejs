@@ -330,17 +330,19 @@
                     <td><%= r.content %> </td>
                     <td><%= r.rating %> </td>
                     <td >
-                        <table class="table">
-                            <tr>
-                                <% if (user && user._id.equals(r.user)) { %>
-                                <a class="btn btn-primary editBtn" href="/reviews/<%= r._id%>/edit">Edit</a>
-                            </tr>
-                            <tr>
-                                <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
-                                    <button class="btn btn-danger deleteBtn" type="submit"><span class="bi-x-lg"></span></button>
-                                </form>
-                                <% } %>
-                            </tr>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <% if (user && user._id.equals(r.user)) { %>
+                                    <td class="edit-container">
+                                        <a class="btn btn-primary editBtn" href="/reviews/<%= r._id%>/edit">Edit</a>
+                                        <form action="/reviews/<%=r._id%>?_method=DELETE" method="POST">
+                                            <button class="btn btn-danger deleteBtn" type="submit"><span class="bi-x-lg"></span></button>
+                                        </form>
+                                    </td>
+                                    <% } %>
+                                </tr>
+                            </tbody>
                         </table>
                     </td>
                 <% }) %>

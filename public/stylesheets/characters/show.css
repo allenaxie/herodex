@@ -16,6 +16,10 @@ body {
 }
 
 /* hero card */
+.card {
+    max-width: 100%;
+}
+
 .char-image {
     width: 100px;
 }
@@ -53,6 +57,7 @@ body {
 
 .del-char-btn {
     margin-right: 20px;
+    max-width:fit-content;
 }
 
 .user-image {
@@ -69,8 +74,17 @@ body {
     text-align: center;
 }
 
+.edit-container {
+    display: flex;
+    flex-direction: row;
+}
 .editBtn {
     margin-right: 10px;
+    margin-bottom: 8px;
+    width: 70px;
+}
+.deletebtn {
+    width: 70px;
 }
 
 .add-review-btn {
@@ -93,7 +107,7 @@ body {
 }
 
 .editBtn {
-    margin-bottom: 10px;
+    
 }
 
 
