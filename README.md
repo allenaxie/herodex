@@ -1,13 +1,15 @@
 # HeroDex
 
-## Description
 
-<img src="images/Screen Shot 2021-12-22 at 9.08.08 AM.png" width=100px>
-<img src="images/Screen Shot 2021-12-22 at 9.08.55 AM.png" width=100px>
-<img src="images/Screen Shot 2021-12-22 at 10.35.38 AM.png" width=100px>
-<img src="images/Screen Shot 2021-12-22 at 10.36.23 AM.png" width=100px>
-<img src="images/Screen Shot 2021-12-22 at 10.36.54 AM.png" width=100px>
+<img src="public/images/index page.png" width=100px height=110px overflow="hidden">
+<img src="public/images/my-team-page.png" width=100px height=110px overflow="hidden">
+<img src="public/images/hero-details-page.png" width=100px height=110px overflow="hidden">
+<img src="public/images/reviews-section.png" width=100px height=110px overflow="hidden">
+<img src="public/images/edit-review-page.png" width=100px height=110px overflow="hidden">
+
 <br><br>
+
+## Description
 
 HeroDex is the ultimate collection of your favorite superheroes (and villains) across all universes. It is a CRUD appplication that allows users to add their favorite characters to their own team. Users are also able to create, read, update, and delete reviews for characters on their team. 
 <br><br>
