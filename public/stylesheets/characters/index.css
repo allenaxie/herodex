@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bungee+Shade&family=Marcellus&family=Orbitron:wght@600&family=Permanent+Marker&family=Teko&family=Share+Tech+Mono&display=swap');
+
 body {
     display: flex;
     flex-direction: column;
@@ -6,10 +8,12 @@ body {
 }
 
 .title {
-    font-size: 40px;
+    font-size: 70px;
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    font-family: Teko;
+
 }
 
 /* search bar */
@@ -18,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 10%;
+
 }
 
 .search-container {
