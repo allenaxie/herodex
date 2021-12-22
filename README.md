@@ -4,7 +4,6 @@
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img src="public/images/index page.png" width=100px height=110px overflow="hidden"> | <img  src="public/images/my-team-page.png" width=100px  height=110px overflow="hidden"> | <img src="public/images/hero-details-page.png" width=100px  height=110px overflow="hidden"> |  <img src="public/images/reviews-section.png" width=100px  height=110px overflow="hidden">
 | <img src="public/images/reviews-section.png" width=100px height=110px overflow="hidden"> | <img src="public/images/edit-review-page.png" width=100px  height=110px overflow="hidden">| 
-|
 <br><br>
 
 ## Description
@@ -25,7 +24,6 @@ HeroDex is the ultimate collection of your favorite superheroes (and villains) a
 - Express
 - SuperHero API
 - Google OAuth
-
 <br><br>
 
 ## Getting Started
@@ -36,7 +34,6 @@ HeroDex is the ultimate collection of your favorite superheroes (and villains) a
 - After the search results are generated, a user can click the "Details" button for the character they would like to learn more about.
 - On the hero details page, a user can view all the information about the character, add/remove the character from user's team, and create, read, and delete reviews.
 - A user can update a review that they previously created by clicking the "Edit" button next to the review. Once clicked, they will be redirected to the 'Edit Review' page and the user can write their new review.
-
 <br><br>
 
 ## Next Steps
