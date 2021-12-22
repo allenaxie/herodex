@@ -45,9 +45,6 @@ function show (req,res) {
 function addTeam (req,res) {
     // Find character
     Character.findOne({apiId: req.params.id}, function (err, character) {
-        console.log('characters', character);
-        console.log('CHARACTERS USER', character.user);
-        console.log('reqUSER ID', req.user._id);
         // if character exists in database
         if (character) {
             // add current user into user property of character
