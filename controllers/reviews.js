@@ -28,7 +28,6 @@ function create (req,res) {
 }
 
 function deleteReview (req,res,next) {
-    console.log(req.params.id, 'paramssss')
    // Note the cool "dot" syntax to query on the property of a subdoc
    Character.findOne({'reviews._id' : req.params.id})
    .then(function(character) {
@@ -49,7 +48,6 @@ function deleteReview (req,res,next) {
 }
 
 function edit (req,res) {
-    console.log('req params iddddd',req.params.id)
     // Find the character linked to the review we are editing
     Character.findOne({'reviews._id': req.params.id})
     .then(characters => {

@@ -18,7 +18,5 @@ router.post('/:id', isLoggedIn, charactersCtrl.addTeam);
 // DELETE "/characters/:id" - Remove character from team
 router.delete('/:id', isLoggedIn, charactersCtrl.delete);
 
-// GET "/characters/all" - all characters route
-
 
 module.exports = router;

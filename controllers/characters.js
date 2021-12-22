@@ -49,7 +49,6 @@ function addTeam (req,res) {
         if (character) {
             // add current user into user property of character
             character.users.push(req.user._id);
-            console.log(character);
             // save model
             character.save(function (err) {
             // handle errors
@@ -63,7 +62,6 @@ function addTeam (req,res) {
             // Create an in-memory object (not saved in database yet)
             const character = new Character();
             character.users.push(req.user._id);
-            console.log('character', character)
             // Fetch character information
             fetch(`${rootURL}/${req.params.id}`)
             // convert to JSON format
