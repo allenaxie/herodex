@@ -12,8 +12,8 @@ module.exports = {
 
 function index (req,res) {
     // Show my team
-    // Find all characters in my team
-   Character.find({user:req.user.id}, function (err, characters) {
+    // Find all characters that has current user in users property
+   Character.find({users:req.user._id}, function (err, characters) {
         const characterName = req.query.characterName; // character searched 
         // if no data in search input, render page
         if (!characterName) return res.render('characters/index', {title: "My team", characterData: null, characters})
@@ -43,41 +43,56 @@ function show (req,res) {
 };
 
 function addTeam (req,res) {
-    
-
-
-
-    console.log('req.params.id',req.params.id)
-    // Add user to character's req.body
-    req.body.user = req.user.id;
-    console.log('reqbodyyyy',req.body)
-    // Create an in-memory object (not saved in database yet)
-    const character = new Character(req.body);
-    console.log('character', character)
-    // Fetch character information
-    fetch(`${rootURL}/${req.params.id}`)
-    // convert to JSON format
-    .then(res => res.json())
-    .then(data => {
-        character.apiId = req.params.id;
-        character.name = data.name;
-        character.image = data.image.url;
-        character.fullName = data.biography.fullName;
-        character.birthplace = data.biography.placeOfBirth;
-        character.gender = data.appearance.gender;
-        character.race = data.appearance.race;
-        character.height = data.appearance.height;
-        character.weight = data.appearance.weight;
-        character.occupation = data.work.occupation;
-        character.base = data.work.base;
-        character.relatives = data.connections.relatives;
-    // save parent document
-    character.save(function (err) {
-        // handle errors
-        if (err) console.log(err);
-        // redirect to characters/index page
-        res.redirect('/characters');
-    })
+    // Find character
+    Character.findOne({apiId: req.params.id}, function (err, character) {
+        console.log('characters', character);
+        console.log('CHARACTERS USER', character.user);
+        console.log('reqUSER ID', req.user._id);
+        // if character exists in database
+        if (character) {
+            // add current user into user property of character
+            character.users.push(req.user._id);
+            console.log(character);
+            // save model
+            character.save(function (err) {
+            // handle errors
+            if (err) console.log(err);
+            // redirect to characters/index page
+            res.redirect('/characters');
+            });
+        } 
+        // else, create new Character object
+        else {
+            // Create an in-memory object (not saved in database yet)
+            const character = new Character();
+            character.users.push(req.user._id);
+            console.log('character', character)
+            // Fetch character information
+            fetch(`${rootURL}/${req.params.id}`)
+            // convert to JSON format
+            .then(res => res.json())
+            .then(data => {
+                character.apiId = req.params.id;
+                character.name = data.name;
+                character.image = data.image.url;
+                character.fullName = data.biography.fullName;
+                character.birthplace = data.biography.placeOfBirth;
+                character.gender = data.appearance.gender;
+                character.race = data.appearance.race;
+                character.height = data.appearance.height;
+                character.weight = data.appearance.weight;
+                character.occupation = data.work.occupation;
+                character.base = data.work.base;
+                character.relatives = data.connections.relatives;
+            // save parent document
+            character.save(function (err) {
+                // handle errors
+                if (err) console.log(err);
+                // redirect to characters/index page
+                res.redirect('/characters');
+            })
+            })
+        }
     })
 };
 

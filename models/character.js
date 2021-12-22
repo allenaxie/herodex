@@ -17,7 +17,7 @@ const reviewSchema = new Schema({
 });
 
 const characterSchema = new Schema({
-    user: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     userName: String,
     userAvatar: String,
     apiId: String,
