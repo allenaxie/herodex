@@ -220,8 +220,16 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                    <% console.log('user',user); %>
-                    <% console.log('characters', characters); %>
+                    <div class="row">
+                        <div class="col">
+                            <% if (characters === null) { %>
+                                <div> 0 users own this character </div>
+                            <% } else { %>
+                                <div> <%= characters.users.length %> users own this character %> </div>
+                            <% } %>
+                        </div>
+                        <div class="col-6"></div>
+                    </div>
                     <!-- if there is an user AND (the character EITHER does not belong to any user's team 
                         OR if current user does not already belong to the character)  -->
                     <% if (user && ((characters === null) || (!characters.users.includes(user._id)))) { %>
