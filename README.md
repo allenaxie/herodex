@@ -5,7 +5,7 @@
 |<img src="public/images/index page.png" width=100px height=110px overflow="hidden"> | <img  src="public/images/my-team-page.png" width=100px  height=110px overflow="hidden"> | <img src="public/images/hero-details-page.png" width=100px  height=110px overflow="hidden"> |  <img src="public/images/reviews-section.png" width=100px  height=110px overflow="hidden">
 | <img src="public/images/reviews-section.png" width=100px height=110px overflow="hidden"> | <img src="public/images/edit-review-page.png" width=100px  height=110px overflow="hidden">| 
 
-<br><br>
+<br>
 
 ## Description
 
@@ -28,7 +28,11 @@ HeroDex is the ultimate collection of your favorite superheroes (and villains) a
 <br><br>
 
 ## Getting Started
-<a href="https://herodex.herokuapp.com/" target="_blank" rel="noreferrernoopener">Click here to start!</a>
+
+<a href="https://trello.com/b/1GlN0yPU/superheroes-crud-app" target="_blank" rel="noreferrernoopener">Trello planning</a>
+
+<a href="https://herodex.herokuapp.com/" target="_blank" rel="noreferrernoopener">Click here to use my app!</a>
+
 
 - On the home page, a user must first login with their google account by clicking "Login" in the nav bar at the top.
 - Once logged in, a user will be redirected to the 'My team' page. Here, the user will be able to view all the characters they've added to their team and search for their favorite character by typing the character name in the search bar.
