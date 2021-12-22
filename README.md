@@ -1,12 +1,10 @@
 # HeroDex
 
-
-<img src="public/images/index page.png" width=100px height=110px overflow="hidden">
-<img src="public/images/my-team-page.png" width=100px height=110px overflow="hidden">
-<img src="public/images/hero-details-page.png" width=100px height=110px overflow="hidden">
-<img src="public/images/reviews-section.png" width=100px height=110px overflow="hidden">
-<img src="public/images/edit-review-page.png" width=100px height=110px overflow="hidden">
-
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img src="public/images/index page.png" width=100px height=110px overflow="hidden"> | <img  src="public/images/my-team-page.png" width=100px  height=110px overflow="hidden"> | <img src="public/images/hero-details-page.png" width=100px  height=110px overflow="hidden"> |  <img src="public/images/reviews-section.png" width=100px  height=110px overflow="hidden">
+| <img src="public/images/reviews-section.png" width=100px height=110px overflow="hidden"> | <img src="public/images/edit-review-page.png" width=100px  height=110px overflow="hidden">| 
+|
 <br><br>
 
 ## Description
