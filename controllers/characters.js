@@ -133,7 +133,7 @@ function allCharacters (req,res) {
             charArray.push(data);
             console.log('lengthhhhhh',charArray.length)
             // if character array has 5 characters, render page
-            return charArray.length === 5 ? res.render('characters/all', {title:"All Characters", charArray}) : false
+            return charArray.length === 5 ? res.render('characters/all', {title:"Explore Characters", charArray}) : false
         })
     })
 }

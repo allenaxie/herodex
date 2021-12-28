@@ -11,6 +11,28 @@
     </head>
     <body>
         <h2 class="title"><%= title %> </h2>
-        
+        <!-- hero cards -->
+        <div class="grid-container"> 
+            <div class="row">
+                <% charArray.forEach(function (c) { %>
+                <div class="card img-fluid shadow-lg">
+                    <img class="card-image" src=<%= c.image.url %>>
+                    <div class="card-body card-img-overlay">
+                        <h5>ID# <%= c.id %></h4>
+                        <h2><%= c.name %></h2>
+                        <h5>Base:
+                            <% if (c.work.base !== "null" && (c.work.base.length < 16)) { %>  
+                                <%= c.work.base %>
+                              <% } else { %>
+                                 N/A 
+                            <% }%>     
+                        </h4>
+                        <a class="btn btn-info card-btn" role="button" href="/characters/<%= c.apiId %>">Details</a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <!--  -->
     </body>
 </html>
