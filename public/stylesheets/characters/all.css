@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.title {
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-family: Teko;
+}

@@ -9,6 +9,9 @@ const isLoggedIn = require('../config/auth');
 // GET "/characters" - Index Route
 router.get('/', isLoggedIn, charactersCtrl.index);
 
+// GET "/characters/all" - All characters route
+router.get('/all', charactersCtrl.allCharacters);
+
 // GET "/characters/:id" - Show route
 router.get('/:id', charactersCtrl.show);
 
@@ -17,6 +20,7 @@ router.post('/:id', isLoggedIn, charactersCtrl.addTeam);
 
 // DELETE "/characters/:id" - Remove character from team
 router.delete('/:id', isLoggedIn, charactersCtrl.delete);
+
 
 
 module.exports = router;

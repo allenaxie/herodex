@@ -8,6 +8,7 @@ module.exports = {
     show,
     addTeam,
     delete: removeChar,
+    allCharacters,
 }
 
 function index (req,res) {
@@ -57,7 +58,7 @@ function addTeam (req,res) {
             res.redirect('/characters');
             });
         } 
-        // else, create new Character object
+        // else, create new Character model
         else {
             // Create an in-memory object (not saved in database yet)
             const character = new Character();
@@ -99,3 +100,7 @@ function removeChar (req,res) {
         }
     );
 };
+
+function allCharacters (req,res) {
+    res.render('characters/all', {title:"All Characters"})
+}
