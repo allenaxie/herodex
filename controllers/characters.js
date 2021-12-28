@@ -63,7 +63,7 @@ function addTeam (req,res) {
             // Create an in-memory object (not saved in database yet)
             const character = new Character();
             character.users.push(req.user._id);
-            // Fetch character information
+            // Fetch character information by id
             fetch(`${rootURL}/${req.params.id}`)
             // convert to JSON format
             .then(res => res.json())
@@ -102,5 +102,38 @@ function removeChar (req,res) {
 };
 
 function allCharacters (req,res) {
-    res.render('characters/all', {title:"All Characters"})
+    function getRandomNum (min,max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random()* (max - min + 1) + min);
+    }
+    // array of random numbers
+    numArray = [];
+    // Generate 5 unique random numbers and add to numArray
+    for (let i = 0; numArray.length < 5; i++) {
+        let number = getRandomNum(1,731);
+        // if number has not been chosen yet
+        if (!numArray.includes(number)) {
+            // add to array of numbers
+            numArray.push(number);
+        }
+    }
+    console.log('length of numArray', numArray.length)
+    // array of characters
+    charArray = [];
+    // for each number in num array, fetch its char ID
+    numArray.forEach(function (num,i) {
+        // fetch character by id
+        fetch(`${rootURL}/${num}`)
+        // convert to JSON format
+        .then(res => res.json())
+        .then(data => {
+            console.log(i,data)
+            // add character data to array
+            charArray.push(data);
+            console.log('lengthhhhhh',charArray.length)
+            // if character array has 5 characters, render page
+            return charArray.length === 5 ? res.render('characters/all', {title:"All Characters", charArray}) : false
+        })
+    })
 }
